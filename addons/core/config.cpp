@@ -10,8 +10,8 @@ class CfgPatches {
             "cba_main"
         };
         author = "ThomasAngel";
-        authors[] = {"ThomasAngel"};
-        url = "https://github.com/rekterakathom/DynamicCamoSystem";
+        authors[] = {"ThomasAngel","nonJoker"};
+        url = "https://github.com/beginnerToSourceSDK/DynamicCamoSystem_WithFoliage";
         VERSION_CONFIG;
     };
 };

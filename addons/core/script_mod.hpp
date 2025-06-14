@@ -1,5 +1,5 @@
 #define MAINPREFIX x
-#define PREFIX DYNCAS
+#define PREFIX DYNCASWF
 
 #include "script_version.hpp"
 

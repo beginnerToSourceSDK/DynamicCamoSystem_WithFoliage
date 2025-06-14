@@ -17,3 +17,13 @@ GVAR(previousTargetSetting) = 0;
 ["CBA_settingsInitialized", {
     GVAR(previousTargetSetting) = CBA_SETTING(targetList);
 }] call CBA_fnc_addEventHandler;
+
+
+player addMPEventHandler ["MPKilled", {
+	params ["_unit", "_killer", "_instigator", "_useEffects"];
+	_unit setVariable ["foliageAttached", false];
+}];
+player addEventHandler ["Killed", {
+	params ["_unit", "_killer", "_instigator", "_useEffects"];
+	_unit setVariable ["foliageAttached", false];
+}];
