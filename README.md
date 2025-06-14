@@ -1,4 +1,4 @@
-# Dynamic Camouflage System
+# Dynamic Camouflage System - With Foliage Modifier
 A lightweight mod that makes your uniform choice actually matter. If your uniforms colours match the ground, you will be less visible to the AI. The mod does this by comparing the uniforms average colour to the ground textures average colour and applying a camouflage coefficient depending on how much the colours match.
 
 See below for an ACE self-interact menu implementation v
