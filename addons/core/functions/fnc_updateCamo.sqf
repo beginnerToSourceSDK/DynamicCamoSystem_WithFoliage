@@ -1,6 +1,6 @@
 #include "script_component.hpp"
 /*
-    Author: ThomasAngel, johnb43
+    Author: ThomasAngel, johnb43, nonJoker
     Steam: https://steamcommunity.com/id/Thomasangel/
     Github: https://github.com/rekterakathom
 
@@ -28,6 +28,8 @@ private _playerTex = (getObjectTextures _unit) param [0, ""];
 
 // Get ground texture data
 private _groundTex = surfaceTexture getPosASL _unit;
+
+private _foliage_mod = 0.05 * ((count (nearestTerrainObjects [_unit, ["Tree", "Bush"], 10])));
 
 // If unit is in a vehicle or a texture isn't defined, reset camo coef
 if (!isNull objectParent _unit || _playerTex isEqualTo "" || _groundTex isEqualTo "") exitWith {
@@ -87,14 +89,21 @@ for "_i" from 0 to 2 do {
 // private _result = 0.35 + ((exp (sqrt(2) * _averages # 0)) - 1);
 
 // New sinusoidal model
-private _result = 1.1 + sin (deg (pi * selectMax _averages) - 89.95) / 2;
+private _result = 1.1 + sin (deg (pi * selectMax _averages) - 89.95) / 2; 
+
+
+
 
 // Night compensation 2: electric boogaloo
 // Reduce visibility by CBA setting's amount because camo doesn't matter as much at night
 if (_isNight) then {
     _result = _result * CBA_SETTING(nightCompensation);
 };
+if (_unit getVariable "foliageAttached" == true) then
+{
+	_result = _result - _foliage_mod; // foliageAttached modifier
 
+};
 // Floor and ceiling result
 _result = (_result max CBA_SETTING(lowerLimit)) min CBA_SETTING(upperLimit);
 
@@ -115,6 +124,7 @@ if (CBA_SETTING(ghillieReduction) > 0) then {
         _result = _result - CBA_SETTING(ghillieReduction);
     };
 };
+
 
 // Hard coded minimum to prevent invisibility
 _result = _result max MIN_VISIBILITY;
