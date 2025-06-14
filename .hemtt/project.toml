@@ -1,0 +1,15 @@
+name = "Dynamic Camo System - With Foliage modifier"
+author = "ThomasAngel, modified by nonJoker"
+prefix = "DYNCASWF"
+mainprefix = "x"
+
+[version]
+git_hash = 0
+major = 1
+minor = 1
+patch = 0
+build = 0
+
+[properties]
+author = "ThomasAngel, modified by nonJoker"
+url = "https://github.com/beginnerToSourceSDK/DynamicCamoSystem_WithFoliage"
